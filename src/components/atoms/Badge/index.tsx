@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { toPropValue } from 'utils/styles'
 
 // バッジの円形
 const BadgeWrapper = styled.div<{ backgroundColor: string }>`
@@ -8,7 +9,8 @@ const BadgeWrapper = styled.div<{ backgroundColor: string }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  ${(props) =>
+    toPropValue('background-color', props.backgroundColor, props.theme)};
 `
 
 // バッジ内のテキスト
